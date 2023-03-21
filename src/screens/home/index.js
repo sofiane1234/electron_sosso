@@ -7,7 +7,10 @@ import AudioList from "../../components/AudioList";
 
 const Home = () => {
   const [filePath, setFile] = useState([]);
-
+  let index;
+  for(index = 0; index < filePath.length - 1; index++) {
+    index = filePath[index]
+  }
   const openDialog = () => {
     window.dialog.removeEventListener();
     window.dialog.open();
@@ -20,11 +23,10 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    console.log(filePath)
+    console.log(filePath);
   }, [filePath]);
 
   return (
-    
     //Ajouter bouton musique
     <Container>
       <Title>
@@ -41,9 +43,8 @@ const Home = () => {
       ></DialogButton>
       <br />
       <AudioList path={filePath}></AudioList>
-      <audio src={filePath[0]} controls></audio>
+      <audio src={filePath[index]} controls></audio>
 
-     
       <Footer>
         <footer>- Application faite par Sofiane Draris</footer>
       </Footer>
