@@ -8,11 +8,13 @@ function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+
     // Set the path of an additional "preload" script that can be used to
     // communicate between node-land and browser-land.
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       nodeIntegration: true,
+      
     },
   });
 
@@ -22,9 +24,10 @@ function createWindow() {
           defaultPath:app.getPath('music'),
           buttonLabel:'Select',
           properties: ['openFile'],
+          title: "Select a music",
           filters: [
-            { name: 'Musique', extensions: ['mp3'] }]
-        })
+          { name: 'Music', extensions: ['mp3', 'wav']}]
+          })
         .then(result => { // se lance quand on a selectionner le fichier
           event.reply('selected-file', result.filePaths[0]) // envoie le chemin du fichier selectionner
         })

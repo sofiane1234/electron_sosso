@@ -1,8 +1,8 @@
 import React from "react";
 import { Nav } from "../container";
 
-const DialogButton = ({ onClick }) => {
-  return  <Nav onClick={onClick}>Ajouter un fichier</Nav>;
+const DialogButton = ({ onClick, title }) => {
+  return  <Nav onClick={onClick}> {title}</Nav>;
 };
 
 export default DialogButton;
