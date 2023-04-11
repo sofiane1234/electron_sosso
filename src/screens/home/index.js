@@ -7,10 +7,11 @@ import AudioList from "../../components/AudioList";
 
 const Home = () => {
   const [filePath, setFile] = useState([]);
-  let index;
-  for(index = 0; index < filePath.length - 1; index++) {
+
+  for(var index = filePath; index < filePath.length - 1; index++) {
     index = filePath[index]
   }
+  
   const openDialog = () => {
     window.dialog.removeEventListener();
     window.dialog.open();
@@ -42,8 +43,10 @@ const Home = () => {
         title="Ajouter un fichier"
       ></DialogButton>
       <br />
-      <AudioList path={filePath}></AudioList>
+      <AudioList path={index}></AudioList>
       <audio src={filePath[index]} controls></audio>
+      <audio src={filePath[1]} controls></audio>
+      <audio src={filePath[2]} controls></audio>
 
       <Footer>
         <footer>- Application faite par Sofiane Draris</footer>
